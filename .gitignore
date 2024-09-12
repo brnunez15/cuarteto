@@ -1,0 +1,7 @@
+*.*
+!*.py
+!.gitignore
+!*.csv
+!*.json
+!README.md
+token
