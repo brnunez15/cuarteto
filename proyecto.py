@@ -38,7 +38,7 @@ def main():
             print("Opción no válida. Intente de nuevo.")
 
         input("\nPresione Enter para continuar...")  
-
+print("prueba")
 
 if __name__ == "__main__":
     main()
