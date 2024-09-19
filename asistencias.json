@@ -1,56 +1,200 @@
 [
     {
-        "nombre": "Manuel",
-        "legajo": "10048",
+        "nombre": "Aguilar",
+        "legajo": "1202505",
+        "fecha": "2024-09-19",
+        "asistencia": "si"
+    },
+    {
+        "nombre": "Franco",
+        "legajo": "1143498",
         "fecha": "2024-09-19",
         "asistencia": "no"
     },
     {
-        "nombre": "Mar\\'eda",
-        "legajo": "10001",
+        "nombre": "Anastasia",
+        "legajo": "1195186",
         "fecha": "2024-09-19",
         "asistencia": "no"
     },
     {
-        "nombre": "Pedro",
-        "legajo": "10002",
+        "nombre": "Maximo",
+        "legajo": "1194267",
         "fecha": "2024-09-19",
         "asistencia": "no"
     },
     {
-        "nombre": "Laura",
-        "legajo": "10003",
+        "nombre": "Gabo",
+        "legajo": "1188962",
+        "fecha": "2024-09-19",
+        "asistencia": "si"
+    },
+    {
+        "nombre": "Keila",
+        "legajo": "1191100",
+        "fecha": "2024-09-19",
+        "asistencia": "si"
+    },
+    {
+        "nombre": "Ian",
+        "legajo": "1179865",
         "fecha": "2024-09-19",
         "asistencia": "no"
     },
     {
-        "nombre": "Javier",
-        "legajo": "10004",
+        "nombre": "Gaspar",
+        "legajo": "1192070",
         "fecha": "2024-09-19",
         "asistencia": "no"
     },
     {
-        "nombre": "Andrea",
-        "legajo": "10005",
+        "nombre": "Franco",
+        "legajo": "1190863",
+        "fecha": "2024-09-19",
+        "asistencia": "si"
+    },
+    {
+        "nombre": "Impa",
+        "legajo": "1173209",
+        "fecha": "2024-09-19",
+        "asistencia": "si"
+    },
+    {
+        "nombre": "Mora",
+        "legajo": "1179661",
+        "fecha": "2024-09-19",
+        "asistencia": "si"
+    },
+    {
+        "nombre": "Aron",
+        "legajo": "1187922",
+        "fecha": "2024-09-19",
+        "asistencia": "si"
+    },
+    {
+        "nombre": "Ariana",
+        "legajo": "1167747",
         "fecha": "2024-09-19",
         "asistencia": "no"
     },
     {
-        "nombre": "Diego",
-        "legajo": "10006",
+        "nombre": "Juana",
+        "legajo": "1188544",
         "fecha": "2024-09-19",
         "asistencia": "no"
     },
     {
-        "nombre": "Ana",
-        "legajo": "10007",
+        "nombre": "Mauro",
+        "legajo": "1187731",
         "fecha": "2024-09-19",
         "asistencia": "no"
     },
     {
-        "nombre": "Carlos",
-        "legajo": "10008",
+        "nombre": "Ronaldo",
+        "legajo": "1199749",
         "fecha": "2024-09-19",
         "asistencia": "no"
+    },
+    {
+        "nombre": "Delfina",
+        "legajo": "1191981",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Sofia",
+        "legajo": "1143266",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Luca",
+        "legajo": "1188327",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Brisa",
+        "legajo": "1187245",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Evangelina",
+        "legajo": "1101756",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Lucas",
+        "legajo": "1194428",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Luka",
+        "legajo": "1170204",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Claudia",
+        "legajo": "1085001",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Serena",
+        "legajo": "1188090",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Lucas",
+        "legajo": "1157834",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Jose",
+        "legajo": "1190497",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Agustin",
+        "legajo": "1179593",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Ludmila",
+        "legajo": "1173539",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Mateo",
+        "legajo": "1195235",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Enso",
+        "legajo": "1178524",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Benjamin",
+        "legajo": "1193218",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Agustin",
+        "legajo": "1102797",
+        "fecha": "2024-09-19",
+        "asistencia": "si"
     }
 ]
