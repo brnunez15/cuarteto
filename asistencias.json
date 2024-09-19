@@ -1,0 +1,56 @@
+[
+    {
+        "nombre": "Manuel",
+        "legajo": "10048",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Mar\\'eda",
+        "legajo": "10001",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Pedro",
+        "legajo": "10002",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Laura",
+        "legajo": "10003",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Javier",
+        "legajo": "10004",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Andrea",
+        "legajo": "10005",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Diego",
+        "legajo": "10006",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Ana",
+        "legajo": "10007",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    },
+    {
+        "nombre": "Carlos",
+        "legajo": "10008",
+        "fecha": "2024-09-19",
+        "asistencia": "no"
+    }
+]
