@@ -3,19 +3,19 @@
         "nombre": "Aguilar",
         "legajo": "1202505",
         "fecha": "20-09-2024",
-        "asistencia": "e"
+        "asistencia": "a"
     },
     {
         "nombre": "Franco",
         "legajo": "1143498",
         "fecha": "20-09-2024",
-        "asistencia": "e"
+        "asistencia": "p"
     },
     {
         "nombre": "Anastasia",
         "legajo": "1195186",
         "fecha": "20-09-2024",
-        "asistencia": "& c:/users/brisa/appdata/local/microsoft/windowsapps/python3.11.exe \"c:/users/brisa/onedrive/documentos/2do cuatri/ayed/cuarteto/registro_asistencias.py\""
+        "asistencia": "a"
     },
     {
         "nombre": "Maximo",
@@ -27,7 +27,7 @@
         "nombre": "Gabo",
         "legajo": "1188962",
         "fecha": "20-09-2024",
-        "asistencia": "& c:/users/brisa/appdata/local/microsoft/windowsapps/python3.11.exe \"c:/users/brisa/onedrive/documentos/2do cuatri/ayed/cuarteto/registro_asistencias.py\""
+        "asistencia": "a"
     },
     {
         "nombre": "Keila",
@@ -39,19 +39,19 @@
         "nombre": "Ian",
         "legajo": "1179865",
         "fecha": "20-09-2024",
-        "asistencia": "a"
+        "asistencia": "p"
     },
     {
         "nombre": "Gaspar",
         "legajo": "1192070",
         "fecha": "20-09-2024",
-        "asistencia": "a"
+        "asistencia": "p"
     },
     {
         "nombre": "Franco",
         "legajo": "1190863",
         "fecha": "20-09-2024",
-        "asistencia": "a"
+        "asistencia": "p"
     },
     {
         "nombre": "Impa",
@@ -63,7 +63,7 @@
         "nombre": "Mora",
         "legajo": "1179661",
         "fecha": "20-09-2024",
-        "asistencia": "aa"
+        "asistencia": "a"
     },
     {
         "nombre": "Aron",
@@ -129,7 +129,7 @@
         "nombre": "Lucas",
         "legajo": "1194428",
         "fecha": "20-09-2024",
-        "asistencia": "aa"
+        "asistencia": "a"
     },
     {
         "nombre": "Luka",
@@ -195,6 +195,6 @@
         "nombre": "Agustin",
         "legajo": "1102797",
         "fecha": "20-09-2024",
-        "asistencia": "aa"
+        "asistencia": "a"
     }
 ]
