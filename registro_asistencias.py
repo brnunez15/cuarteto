@@ -3,9 +3,9 @@ import json
 from datetime import datetime
 import os
 from tabulate import tabulate
+#from CSV import alumnos as al
 
-
-def cargar_alumnos(archivo_csv):
+def cargar_alumnos(archivo_csv) -> list:
     """
     Funcion para cargar datos de los alumnos desde un archivo CSV
     precondicion: lee el archico CSV con los datos del alumno(num de legajo, nombre y apellido, celular y mail)
@@ -18,23 +18,23 @@ def cargar_alumnos(archivo_csv):
             alumnos.append(fila)
     return alumnos
 
-def registrar_asistencias(alumnos):
+def registrar_asistencias(alumnos) -> list:
     """
     Funcion para registrar asistencia de los alumnos
     precondicion: lee nombre, apellido y legajo del alumno y la fecha actual y pregunta si asistio o no
     postcondicion: imprime los datos del alumno y si asistio o no
     """
     asistencias = []
-    fecha_actual = datetime.now().strftime("%Y-%m-%d")  # Obtener la fecha actual
+    fecha_actual = datetime.now().strftime("%d-%m-%Y")  # Obtener la fecha actual
 
     for alumno in alumnos:
-        print(f"¿El alumno {alumno['nombre']} (LEGAJO: {alumno['legajo']}) asistió hoy ({fecha_actual})? (si/no)")
-        asistencia = input().strip().lower()
+        print(f"¿El alumno {alumno['nombre']} (LEGAJO: {alumno['legajo']}) asistió hoy ({fecha_actual})? (p/a)")
+        asistencia = input("Ingrese el tipo de asistencia: ").strip().lower()
+
         
-        
-        while asistencia not in ['si', 'no']:
-            print("Por favor ingrese 'si' o 'no'.")
-            asistencia = input().strip().lower()
+        while asistencia != 'p' and asistencia != 'a':
+            print("Por favor ingrese 'p' o 'a'.")
+            asistencia = input("Ingrese el tipo de asistencia: ").strip().lower()
 
         asistencias.append({
             "nombre": alumno['nombre'],
@@ -95,9 +95,12 @@ def mostrar_menu():
         if opcion == "1":
             print("Has seleccionado Cargar asistencias o inasistencias.")
             contrasenia = int(input("Ingrese la contraseña: "))
-            while contrasenia == 1234:
+            if contrasenia == 1234:
                 print("Contraseña correcta, iniciando...")
-                main()  
+                main()
+            else:
+                print("Contraseña incorrecta.")
+
         elif opcion == "2":
             print("Has seleccionado Ver mi porcentaje de asistencias.")
             
