@@ -3,9 +3,10 @@ import json
 from datetime import datetime
 import os
 from tabulate import tabulate
-#from CSV import alumnos as al
+from typing import List
 
-def cargar_alumnos(archivo_csv) -> list:
+
+def cargar_alumnos(archivo_csv) -> List:
     """
     Funcion para cargar datos de los alumnos desde un archivo CSV
     precondicion: lee el archico CSV con los datos del alumno(num de legajo, nombre y apellido, celular y mail)
@@ -18,7 +19,7 @@ def cargar_alumnos(archivo_csv) -> list:
             alumnos.append(fila)
     return alumnos
 
-def registrar_asistencias(alumnos) -> list:
+def registrar_asistencias(alumnos: List) -> List:
     """
     Funcion para registrar asistencia de los alumnos
     precondicion: lee nombre, apellido y legajo del alumno y la fecha actual y pregunta si asistio o no
