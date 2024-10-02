@@ -1,12 +1,13 @@
-import csv
 import json
+import csv
 from datetime import datetime
 import os
-from tabulate import tabulate
 from typing import List
+from tabulate import tabulate
 
 
-def cargar_alumnos(archivo_csv) -> List:
+
+def cargar_alumnos(archivo_csv: str) -> List:
     """
     Funcion para cargar datos de los alumnos desde un archivo CSV
     precondicion: lee el archico CSV con los datos del alumno(num de legajo, nombre y apellido, celular y mail)
@@ -19,14 +20,14 @@ def cargar_alumnos(archivo_csv) -> List:
             alumnos.append(fila)
     return alumnos
 
-def registrar_asistencias(alumnos: List) -> List:
+def registrar_asistencias(alumnos: List) -> List[dict]:
     """
     Funcion para registrar asistencia de los alumnos
     precondicion: lee nombre, apellido y legajo del alumno y la fecha actual y pregunta si asistio o no
     postcondicion: imprime los datos del alumno y si asistio o no
     """
     asistencias = []
-    fecha_actual = datetime.now().strftime("%d-%m-%Y")  # Obtener la fecha actual
+    fecha_actual = datetime.now().strftime("%d-%m-%Y") 
 
     for alumno in alumnos:
         print(f"¿El alumno {alumno['nombre']} (LEGAJO: {alumno['legajo']}) asistió hoy ({fecha_actual})? (p/a)")
@@ -47,7 +48,7 @@ def registrar_asistencias(alumnos: List) -> List:
     return asistencias
 
 
-def guardar_asistencias_json(asistencias, archivo_json):
+def guardar_asistencias_json(asistencias: List[dict], archivo_json: str) -> None:
     """
     Funcion para guardar las asistencias en el archivo json
     precondicion: recibe la informacion de asistencias
@@ -57,7 +58,7 @@ def guardar_asistencias_json(asistencias, archivo_json):
         json.dump(asistencias, f, indent=4)
 
 
-def main():
+def main() -> None :
     """
     Funcion principal
     """
@@ -70,7 +71,7 @@ def main():
 
     print("Asistencias guardadas exitosamente en", archivo_asistencias)
 
-def limpiar_consola():
+def limpiar_consola() -> None:
     os.system("cls" if os.name == "nt" else "clear")
 
 def mostrar_menu():
