@@ -1,23 +1,29 @@
 import json
-import csv
+
 from datetime import datetime
 import os
 from typing import List
 from tabulate import tabulate
 
-
-
-def cargar_alumnos(archivo_csv: str) -> List:
+def cargar_alumnos(archivo_csv: str) -> List[dict]:
     """
-    Funcion para cargar datos de los alumnos desde un archivo CSV
-    precondicion: lee el archico CSV con los datos del alumno(num de legajo, nombre y apellido, celular y mail)
-    postcondicion: usa el archivo 
+    Función para cargar datos de los alumnos desde un archivo CSV sin usar csv.DictReader.
+    Precondición: lee el archivo CSV con los datos del alumno (num de legajo, nombre y apellido, celular y mail)
+    Postcondición: retorna una lista de diccionarios con los datos de los alumnos.
     """
     alumnos = []
+    
     with open(archivo_csv, 'r', encoding="UTF-8") as f:
-        lector_csv = csv.DictReader(f)
-        for fila in lector_csv:
-            alumnos.append(fila)
+        
+        lineas = f.readlines()
+        
+        encabezado = lineas[0].strip().split(",")
+        
+        for linea in lineas[1:]:
+            valores = linea.strip().split(",")
+            alumno = dict(zip(encabezado, valores))
+            alumnos.append(alumno)
+    
     return alumnos
 
 def registrar_asistencias(alumnos: List) -> List[dict]:
@@ -56,20 +62,6 @@ def guardar_asistencias_json(asistencias: List[dict], archivo_json: str) -> None
     """
     with open(archivo_json, 'w', encoding='UTF-8') as f:
         json.dump(asistencias, f, indent=4)
-
-
-def main() -> None :
-    """
-    Funcion principal
-    """
-    archivo_alumnos = 'alumnos.csv'  
-    archivo_asistencias = 'asistencias.json'  
-
-    alumnos = cargar_alumnos(archivo_alumnos)
-    asistencias = registrar_asistencias(alumnos)
-    guardar_asistencias_json(asistencias, archivo_asistencias)
-
-    print("Asistencias guardadas exitosamente en", archivo_asistencias)
 
 def limpiar_consola() -> None:
     os.system("cls" if os.name == "nt" else "clear")
@@ -119,6 +111,23 @@ def mostrar_menu():
             print("Opción no válida. Intente de nuevo.")
 
         input("\nPresione Enter para continuar...")
+
+def main() -> None :
+    """
+    Funcion principal
+    """
+    ruta_actual = os.getcwd()
+    carpeta_csv = os.path.join(ruta_actual, 'CSV')
+    carpeta_json = os.path.join(ruta_actual, 'JSON')
+
+    archivo_alumnos = os.path.join(carpeta_csv, 'alumnos.csv')
+    archivo_asistencias = os.path.join(carpeta_json, 'asistencias.json')
+
+    alumnos = cargar_alumnos(archivo_alumnos)
+    asistencias = registrar_asistencias(alumnos)
+    guardar_asistencias_json(asistencias, archivo_asistencias)
+
+    print("Asistencias guardadas exitosamente")
 
 
 if __name__ == "__main__":
