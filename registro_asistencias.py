@@ -62,13 +62,28 @@ def guardar_asistencias_json(asistencias: List[dict], archivo_json: str) -> None
     with open(archivo_json, 'w', encoding='UTF-8') as f:
         json.dump(asistencias, f, indent=4)
 
+def agregar_alumno_nuevo(archivo_csv: str):
+   
+    legajo = input("Ingrese el legajo del nuevo alumno: ")
+    nombre = input("Ingrese el nombre del nuevo alumno: ")
+    apellido = input("Ingrese el apellido del nuevo alumno: ")
+    mail = input("Ingrese el correo electrónico del nuevo alumno: ")
+    celular = input("Ingrese el número de celular del nuevo alumno: ")
+
+    nueva_linea = f"{legajo},{nombre},{apellido},{mail},{celular}\n"
+
+    with open(archivo_csv, 'a') as archivo:
+        archivo.seek(0, 2)
+        archivo.write(nueva_linea)
+    print("Alumno agregado correctamente.")
+
 def limpiar_consola() -> None:
     os.system("cls" if os.name == "nt" else "clear")
 
 def mostrar_menu():
     """
     Funcion para mostrar el menu
-    precondicion: recibe un numero del 1 al 5 para seleccionar el menu que se quiere ver
+    precondicion: recibe un numero del 1 al 6 para seleccionar el menu que se quiere ver
     postcondicion: devuelve la pantalla del menu seleccionado
     """
     menu = [
@@ -76,7 +91,8 @@ def mostrar_menu():
         ["2", "Ver mi porcentaje de asistencias"],
         ["3", "Ver mi total de asistencias"],
         ["4", "Ver mi total de inasistencias"],
-        ["5", "Salir"]
+        ["5", "Cargar un nuevo alumno"],
+        ["6", "Salir"]
     ]
 
     while True:
@@ -102,10 +118,15 @@ def mostrar_menu():
             
         elif opcion == "4":
             print("Has seleccionado Ver mi total de inasistencias.")
-            
+        
         elif opcion == "5":
+            print("Has seleccionado Agregar un nuevo alumno.")
+            agregar_alumno_nuevo("CSV/alumnos.csv")
+        
+        elif opcion == "6":
             print("Saliendo...")
             break
+        
         else:
             print("Opción no válida. Intente de nuevo.")
 
