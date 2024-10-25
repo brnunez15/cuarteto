@@ -94,6 +94,23 @@ def inasistencias(archivo_asistencias: str, legajo_alumno: str) -> int:
 
     return total_inasistencias
 
+def asistencias(archivo_asistencias: str, legajo_alumno: str) -> int:
+    """
+    Función para contar el total de asistencias de un alumno.
+    Precondición: recibe el archivo JSON de asistencias y el número de legajo del alumno.
+    Postcondición: devuelve el total de asistencias del alumno.
+    """
+    total_asistencias = 0
+
+    with open(archivo_asistencias, 'r', encoding='UTF-8') as f:
+        asistencias = json.load(f)
+
+    for asistencia in asistencias:
+        if asistencia["legajo"] == legajo_alumno and asistencia["asistencia"] == "p":
+            total_asistencias += 1
+
+    return total_asistencias
+
 def limpiar_consola() -> None:
     os.system("cls" if os.name == "nt" else "clear")
 
@@ -120,6 +137,9 @@ def mostrar_menu_alumno() -> None:
             
         elif opcion == "2":
             print("Has seleccionado Ver mi total de asistencias.")
+            legajo_alumno = input("Ingrese su número de legajo: ")
+            total_asistencias = asistencias("JSON/asistencias.json", legajo_alumno)
+            print(f"Total de asistencias: {total_asistencias}")
             
         elif opcion == "3":
             print("Has seleccionado Ver mi total de inasistencias.")
