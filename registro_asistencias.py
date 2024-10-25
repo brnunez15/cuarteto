@@ -1,5 +1,4 @@
 import json
-
 from datetime import datetime
 import os
 from typing import List
@@ -45,7 +44,7 @@ def registrar_asistencias(alumnos: List) -> List[dict]:
             asistencia = input("Ingrese el tipo de asistencia: ").strip().lower()
 
         asistencias.append({
-            "nombre": alumno['nombre'],
+            "nombre": alumno['nombre'], 
             "legajo": alumno['legajo'],
             "fecha": fecha_actual,
             "asistencia": asistencia
@@ -94,7 +93,7 @@ def mostrar_menu():
                 main()
             else:
                 print("Contraseña incorrecta.")
-
+       
         elif opcion == "2":
             print("Has seleccionado Ver mi porcentaje de asistencias.")
             
@@ -126,6 +125,7 @@ def main() -> None :
     alumnos = cargar_alumnos(archivo_alumnos)
     asistencias = registrar_asistencias(alumnos)
     guardar_asistencias_json(asistencias, archivo_asistencias)
+
 
     print("Asistencias guardadas exitosamente")
 
