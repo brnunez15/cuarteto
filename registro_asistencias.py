@@ -1,46 +1,45 @@
 import json
-
 from datetime import datetime
 import os
 from typing import List
 from tabulate import tabulate
 
-def cargar_alumnos(archivo_csv: str) -> List[dict]:
+def cargar_alumnos(archivo_csv: str) -> list[dict]:
     """
     Función para cargar datos de los alumnos desde un archivo CSV sin usar csv.DictReader.
     Precondición: lee el archivo CSV con los datos del alumno (num de legajo, nombre y apellido, celular y mail)
     Postcondición: retorna una lista de diccionarios con los datos de los alumnos.
     """
     alumnos = []
-    
+
     with open(archivo_csv, 'r', encoding="UTF-8") as f:
-        
+    
         lineas = f.readlines()
-        
+
         encabezado = lineas[0].strip().split(",")
         
         for linea in lineas[1:]:
             valores = linea.strip().split(",")
-            alumno = dict(zip(encabezado, valores))
+            alumno = dict(zip(encabezado, valores)) #los convierte en un solo iterable en este caso tupla
             alumnos.append(alumno)
     
     return alumnos
 
-def registrar_asistencias(alumnos: List) -> List[dict]:
+def registrar_asistencias(alumnos: List) -> list[dict]:
     """
     Funcion para registrar asistencia de los alumnos
     precondicion: lee nombre, apellido y legajo del alumno y la fecha actual y pregunta si asistio o no
     postcondicion: imprime los datos del alumno y si asistio o no
     """
     asistencias = []
-    fecha_actual = datetime.now().strftime("%d-%m-%Y") 
+    fecha_actual = datetime.now().strftime("%d-%m-%Y")
 
     for alumno in alumnos:
-        while True:  
+        while True:
             print(f"¿El alumno {alumno['nombre']} (LEGAJO: {alumno['legajo']}) asistió hoy ({fecha_actual})? (p/a)")
             asistencia = input("Ingrese el tipo de asistencia: ").strip().lower()
 
-            if asistencia == 'p' or asistencia == 'a':  
+            if asistencia == 'p' or asistencia == 'a':
                 asistencias.append({
                     "nombre": alumno['nombre'],
                     "legajo": alumno['legajo'],
@@ -54,7 +53,7 @@ def registrar_asistencias(alumnos: List) -> List[dict]:
     return asistencias
 
 
-def guardar_asistencias_json(asistencias: List[dict], archivo_json: str) -> None:
+def guardar_asistencias_json(asistencias: list[dict], archivo_json: str) -> None:
     """
     Funcion para guardar las asistencias en el archivo json
     precondicion: recibe la informacion de asistencias
@@ -99,8 +98,8 @@ def mostrar_menu():
             print("Has seleccionado Ver mi porcentaje de asistencias.")
             
         elif opcion == "3":
-            print("Has seleccionado Ver mi total de asistencias.")
-            
+            print("Has seleccionado Ver mi total de asistencias.") 
+
         elif opcion == "4":
             print("Has seleccionado Ver mi total de inasistencias.")
             
@@ -126,6 +125,7 @@ def cargar_asistencias() -> None :
     guardar_asistencias_json(asistencias, archivo_asistencias)
 
     print("Asistencias guardadas exitosamente")
+    return None
     
     
 def main() -> None:
