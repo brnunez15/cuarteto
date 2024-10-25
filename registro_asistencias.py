@@ -76,6 +76,36 @@ def agregar_alumno_nuevo(archivo_csv: str):
         archivo.write(nueva_linea + ".\n")
     print("Alumno agregado correctamente.")
 
+def inasistencias(archivo_asistencias: str, legajo_alumno: str) -> int:
+    """
+    Función para contar el total de inasistencias de un alumno.
+    Precondición: recibe el archivo JSON de asistencias y el número de legajo del alumno.
+    Postcondición: devuelve el total de inasistencias del alumno.
+    """
+    total_inasistencias = 0
+
+    with open(archivo_asistencias, 'r', encoding='UTF-8') as f:
+        asistencias = json.load(f)
+
+    for asistencia in asistencias:
+        if asistencia["legajo"] == legajo_alumno and asistencia["asistencia"] == "a":
+            total_inasistencias += 1
+
+    return total_inasistencias
+
+def asistencias(archivo_asistencias: str, legajo_alumno: str) -> int:
+    """
+    Función para contar el total de asistencias de un alumno.
+    Precondición: recibe el archivo JSON de asistencias y el número de legajo del alumno.
+    Postcondición: devuelve el total de asistencias del alumno.
+    """
+
+    with open(archivo_asistencias, 'r', encoding='UTF-8') as f:
+        asistencias = json.load(f)
+    total_asistencias = sum(1 for asistencia in asistencias if asistencia["legajo"] == legajo_alumno and asistencia["asistencia"] == "p")
+
+    return total_asistencias
+
 def limpiar_consola() -> None:
     os.system("cls" if os.name == "nt" else "clear")
 
@@ -102,10 +132,16 @@ def mostrar_menu_alumno() -> None:
             
         elif opcion == "2":
             print("Has seleccionado Ver mi total de asistencias.")
+            legajo_alumno = input("Ingrese su número de legajo: ")
+            total_asistencias = asistencias("JSON/asistencias.json", legajo_alumno)
+            print(f"Total de asistencias: {total_asistencias}")
             
         elif opcion == "3":
             print("Has seleccionado Ver mi total de inasistencias.")
-        
+            legajo_alumno = input("Ingrese su número de legajo: ")
+            total_inasistencias = inasistencias("JSON/asistencias.json", legajo_alumno)
+            print(f"Total de inasistencias: {total_inasistencias}")
+            break
         elif opcion == "4":
             print("Saliendo...")
             break
