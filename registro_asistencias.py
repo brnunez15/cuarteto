@@ -100,14 +100,11 @@ def asistencias(archivo_asistencias: str, legajo_alumno: str) -> int:
     Precondición: recibe el archivo JSON de asistencias y el número de legajo del alumno.
     Postcondición: devuelve el total de asistencias del alumno.
     """
-    total_asistencias = 0
+    #total_asistencias = 0
 
     with open(archivo_asistencias, 'r', encoding='UTF-8') as f:
         asistencias = json.load(f)
-
-    for asistencia in asistencias:
-        if asistencia["legajo"] == legajo_alumno and asistencia["asistencia"] == "p":
-            total_asistencias += 1
+    total_asistencias = sum(1 for asistencia in asistencias if asistencia["legajo"] == legajo_alumno and asistencia["asistencia"] == "p")
 
     return total_asistencias
 
