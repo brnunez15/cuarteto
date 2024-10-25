@@ -35,21 +35,21 @@ def registrar_asistencias(alumnos: List) -> List[dict]:
     fecha_actual = datetime.now().strftime("%d-%m-%Y") 
 
     for alumno in alumnos:
-        print(f"¿El alumno {alumno['nombre']} (LEGAJO: {alumno['legajo']}) asistió hoy ({fecha_actual})? (p/a)")
-        asistencia = input("Ingrese el tipo de asistencia: ").strip().lower()
-
-        
-        while asistencia != 'p' and asistencia != 'a':
-            print("Por favor ingrese 'p' o 'a'.")
+        while True:  
+            print(f"¿El alumno {alumno['nombre']} (LEGAJO: {alumno['legajo']}) asistió hoy ({fecha_actual})? (p/a)")
             asistencia = input("Ingrese el tipo de asistencia: ").strip().lower()
 
-        asistencias.append({
-            "nombre": alumno['nombre'], 
-            "legajo": alumno['legajo'],
-            "fecha": fecha_actual,
-            "asistencia": asistencia
-        })
-    
+            if asistencia == 'p' or asistencia == 'a':  
+                asistencias.append({
+                    "nombre": alumno['nombre'],
+                    "legajo": alumno['legajo'],
+                    "fecha": fecha_actual,
+                    "asistencia": asistencia
+                })
+                break
+            else:
+                print("Por favor, ingrese 'p' para presente o 'a' para ausente.")
+
     return asistencias
 
 
@@ -90,7 +90,7 @@ def mostrar_menu():
             contrasenia = int(input("Ingrese la contraseña: "))
             if contrasenia == 1234:
                 print("Contraseña correcta, iniciando...")
-                main()
+                cargar_asistencias()
             else:
                 print("Contraseña incorrecta.")
        
@@ -111,10 +111,8 @@ def mostrar_menu():
 
         input("\nPresione Enter para continuar...")
 
-def main() -> None :
-    """
-    Funcion principal
-    """
+def cargar_asistencias() -> None :
+    
     ruta_actual = os.getcwd()
     carpeta_csv = os.path.join(ruta_actual, 'CSV')
     carpeta_json = os.path.join(ruta_actual, 'JSON')
@@ -128,7 +126,15 @@ def main() -> None :
 
 
     print("Asistencias guardadas exitosamente")
+    
+    
+def main() -> None:
 
+    """
+    Funcion principal
+    """
+
+    mostrar_menu()
 
 if __name__ == "__main__":
-    mostrar_menu()
+    main()
