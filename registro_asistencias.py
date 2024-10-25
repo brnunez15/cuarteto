@@ -73,8 +73,7 @@ def agregar_alumno_nuevo(archivo_csv: str):
     nueva_linea = f"{legajo},{nombre},{apellido},{mail},{celular}\n"
 
     with open(archivo_csv, 'a') as archivo:
-        archivo.seek(0, 2)
-        archivo.write(nueva_linea)
+        archivo.write(nueva_linea + ".\n")
     print("Alumno agregado correctamente.")
 
 def limpiar_consola() -> None:
