@@ -80,50 +80,34 @@ def agregar_alumno_nuevo(archivo_csv: str):
 def limpiar_consola() -> None:
     os.system("cls" if os.name == "nt" else "clear")
 
-def mostrar_menu():
+def mostrar_menu_alumno() -> None:
     """
-    Funcion para mostrar el menu
-    precondicion: recibe un numero del 1 al 6 para seleccionar el menu que se quiere ver
+    Funcion para mostrar el menu de los alumnos
+    precondicion: recibe un numero del 1 al 4 para seleccionar el menu que se quiere ver
     postcondicion: devuelve la pantalla del menu seleccionado
     """
-    menu = [
-        ["1", "Cargar asistencias o inasistencias"],
-        ["2", "Ver mi porcentaje de asistencias"],
-        ["3", "Ver mi total de asistencias"],
-        ["4", "Ver mi total de inasistencias"],
-        ["5", "Cargar un nuevo alumno"],
-        ["6", "Salir"]
+    menu_alumno = [
+        ["1", "Ver mi porcentaje de asistencias"],
+        ["2", "Ver mi total de asistencias"],
+        ["3", "Ver mi total de inasistencias"],
+        ["4", "Salir"]
     ]
-
-    while True:
+    while True:  
         limpiar_consola()
-        print(tabulate(menu, headers=["Opción", "Descripción"], tablefmt="rounded_grid"))
+        print(tabulate(menu_alumno, headers=["Opción", "Descripción"], tablefmt="rounded_grid"))
         
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
-            print("Has seleccionado Cargar asistencias o inasistencias.")
-            contrasenia = int(input("Ingrese la contraseña: "))
-            if contrasenia == 1234:
-                print("Contraseña correcta, iniciando...")
-                cargar_asistencias()
-            else:
-                print("Contraseña incorrecta.")
-       
-        elif opcion == "2":
             print("Has seleccionado Ver mi porcentaje de asistencias.")
             
-        elif opcion == "3":
+        elif opcion == "2":
             print("Has seleccionado Ver mi total de asistencias.")
             
-        elif opcion == "4":
+        elif opcion == "3":
             print("Has seleccionado Ver mi total de inasistencias.")
         
-        elif opcion == "5":
-            print("Has seleccionado Agregar un nuevo alumno.")
-            agregar_alumno_nuevo("CSV/alumnos.csv")
-        
-        elif opcion == "6":
+        elif opcion == "4":
             print("Saliendo...")
             break
         
@@ -131,6 +115,71 @@ def mostrar_menu():
             print("Opción no válida. Intente de nuevo.")
 
         input("\nPresione Enter para continuar...")
+
+def mostrar_menu_profesor() -> None:
+    
+    menu_profesor = [
+        ["1", "Cargar asistencia o inasistencia"],
+        ["2", "Cargar un nuevo alumno"],
+        ["3", "Salir"]
+    ]
+    while True:  
+        limpiar_consola()
+        print(tabulate(menu_profesor, headers=["Opción", "Descripción"], tablefmt="rounded_grid"))
+        
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            print("Has seleccionado Cargar Asistencia o Inasistencia.")
+            cargar_asistencias()
+       
+        elif opcion == "2":
+            print("Has seleccionado Cargar un nuevo alumno.")
+            agregar_alumno_nuevo("CSV/alumnos.csv")
+            
+        elif opcion == "3":
+            print("Saliendo...")
+            break
+        
+        else:
+            print("Opción no válida. Intente de nuevo.")
+
+        input("\nPresione Enter para continuar...")
+
+def mostrar_menu_principal() -> None:
+    menu_principal = [
+        ["1", "Soy Alumno"],
+        ["2", "Soy Profesor"],
+        ["3", "Salir"]
+    ]
+    
+    while True:  
+        limpiar_consola()
+        print(tabulate(menu_principal, headers=["Opción", "Descripción"], tablefmt="rounded_grid"))
+        
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            print("Has seleccionado Alumno.")
+            mostrar_menu_alumno()
+       
+        elif opcion == "2":
+            print("Has seleccionado Profesor.")
+            contrasenia = input("Ingrese la contraseña: ")
+            if contrasenia == "1234":
+                mostrar_menu_profesor()
+            else: 
+                print("Contraseña incorrecta.")
+
+        elif opcion == "3":
+            print("Saliendo...")
+            break
+        
+        else:
+            print("Opción no válida. Intente de nuevo.")
+
+        input("\nPresione Enter para continuar...")
+
 
 def cargar_asistencias() -> None :
     
@@ -155,7 +204,7 @@ def main() -> None:
     Funcion principal
     """
 
-    mostrar_menu()
+    mostrar_menu_principal()
 
 if __name__ == "__main__":
     main()
