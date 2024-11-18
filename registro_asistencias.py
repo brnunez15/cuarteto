@@ -33,12 +33,11 @@ def registrar_asistencias(alumnos: List[dict]) -> List[dict]:
     """
     asistencias = []
     
-    # Loop until a valid date is entered
     while True:
         fecha_input = input("Ingrese la fecha (DD-MM-YYYY): ")
         try:
             fecha_actual = datetime.strptime(fecha_input, "%d-%m-%Y").strftime("%d-%m-%Y")
-            break  # Exit the loop if the date is valid
+            break  
         except ValueError:
             print("Fecha inválida. Por favor, ingrese una fecha en el formato DD-MM-YYYY.")
     
@@ -77,6 +76,7 @@ def guardar_asistencias_json(asistencias: List[dict], archivo_json: str) -> None
     existing_asistencias.extend(asistencias)
     with open(archivo_json, 'w', encoding='UTF-8') as f:
         json.dump(existing_asistencias, f, indent=4)
+
 def agregar_alumno_nuevo(archivo_csv: str):
    
     legajo = input("Ingrese el legajo del nuevo alumno: ")
@@ -135,7 +135,7 @@ def calcular_porcentaje_asistencia(archivo_asistencias: str, legajo_alumno: str)
         total_registros = sum(1 for asistencia in asistencias if asistencia["legajo"] == legajo_alumno)
 
         if total_registros == 0:
-            return 0.0  # Evitar división por cero
+            return 0.0
 
         porcentaje = (total_asistencias / total_registros) * 100
         return porcentaje
