@@ -121,6 +121,35 @@ def asistencias(archivo_asistencias: str, legajo_alumno: str) -> int:
 
     return total_asistencias
 
+def calcular_porcentaje_asistencia(archivo_asistencias: str, legajo_alumno: str) -> float:
+    """
+    Función para calcular el porcentaje de asistencia de un alumno.
+    Precondición: recibe el archivo JSON de asistencias y el número de legajo del alumno.
+    Postcondición: devuelve el porcentaje de asistencia del alumno.
+    """
+    try:
+        with open(archivo_asistencias, 'r', encoding='UTF-8') as f:
+            asistencias = json.load(f)
+
+        total_asistencias = sum(1 for asistencia in asistencias if asistencia["legajo"] == legajo_alumno and asistencia["asistencia"] == "p")
+        total_registros = sum(1 for asistencia in asistencias if asistencia["legajo"] == legajo_alumno)
+
+        if total_registros == 0:
+            return 0.0  # Evitar división por cero
+
+        porcentaje = (total_asistencias / total_registros) * 100
+        return porcentaje
+
+    except FileNotFoundError: 
+        print(f"No se encontró el archivo de asistencias {archivo_asistencias}")
+        return 0.0
+    except json.JSONDecodeError as e:
+        print(f"Error al leer el archivo JSON de asistencias: {e}")
+        return 0.0
+    except KeyError:
+        print("Error al buscar el legajo del alumno en el archivo JSON")
+        return 0.0
+
 def limpiar_consola() -> None:
     os.system("cls" if os.name == "nt" else "clear")
     
@@ -144,6 +173,10 @@ def mostrar_menu_alumno() -> None:
 
         if opcion == "1":
             print("Has seleccionado Ver mi porcentaje de asistencias.")
+            legajo_alumno = input("Ingrese su número de legajo: ")
+            porcentaje_asistencia = calcular_porcentaje_asistencia("JSON/asistencias.json", legajo_alumno)
+            print(f"Porcentaje de asistencia: {porcentaje_asistencia:.2f}%")
+            
             
         elif opcion == "2":
             print("Has seleccionado Ver mi total de asistencias.")
